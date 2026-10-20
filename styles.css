@@ -1,0 +1,106 @@
+:root {
+    --blue: #1D4E9E;
+    --yellow: #F4C542;
+    --ink: #182338;
+}
+
+body {
+    margin: 0;
+    font-family: "Muktra", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink);
+}
+
+h1, h2, h3 {
+    font-family: "Yaseva One", serif;
+    font-weight: normal;
+    color: var(--blue);
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    display: flex; 
+    gap: 20px;
+    padding: 12px 24px;
+    background: white;
+    border-bottom: 3px solid var(--blue);
+}
+
+nav a {
+    color: var(--ink);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:first child {
+    margin-right: auto;
+    font-family: "Yaseva One", serif;
+    font-weight: normal;
+    font-size: 22px;
+    color: var(--blue);
+}
+
+header {
+    background: var(--yellow);
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 8px solid var(--blue);
+}
+
+header h1 {
+    display: inline-block;
+    margin: 0;
+    padding: 0 40px;
+    font-size: 90px;
+    background: white;
+    border: 10px double var(--blue);
+    border-radius: 6px;
+}
+
+header p {
+    max-width: 500px;
+    margin: 24px auto 0;
+    font-size: 22px;
+}
+
+section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+section h2 {
+    font-size: 28px;
+    text-align: center;
+}
+
+article {
+    background: #FFF8E1;
+    border-left: 6px solid var(--yellow);
+    border-radius: 0 10px 10px 0;
+    padding: 8px 24px 24px;
+    margin-bottom: 30px;
+}
+
+article h3 {
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+article p {
+    margin-top: 0;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+@media (max-width: 600px) {
+    #day1 h1 {
+        font-size: 56px;
+        padding: 0 24px;
+    }
+    article {
+        padding: 8px 16px 20px;
+    }
+}
