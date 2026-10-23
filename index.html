@@ -7,12 +7,15 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&family=Yeseva+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <nav>
         <a href="#">Goa blog</a>
         <a href="#story">My story</a>
         <a href="#photos">Photos</a>
+        <a href="#videos">Videos</a>
     </nav>
 
     <header>
@@ -105,6 +108,16 @@
             <h3>Conclusion</h3>
             The trip had gone through very successfully with less hurdles in the way and everyone was safe and the travel guides guided everyone smoothly.
         </article>
+    </section>
+    <section id="photos">
+        <h2>Photos</h2>
+        <button onclick="upload('image')">Upload photos</button>
+        <div></div>
+    </section>
+    <section id="videos">
+        <h2>Videos</h2>
+        <button onclick="upload('video')">Upload videos</button>
+        <div></div>
     </section>
 </body>
 </html>

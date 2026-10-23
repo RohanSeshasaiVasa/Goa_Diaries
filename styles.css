@@ -104,3 +104,32 @@ article p {
         padding: 8px 16px 20px;
     }
 }
+
+button {
+    display: block;
+    margin: 0 auto 24px;
+    padding: 10px 24px;
+    font: inherit;
+    font-weight: bold;
+    color: white;
+    background: var(--blue);
+    border-radius: 999px;
+    cursor: crosshair;
+}
+
+#photos div, #videos div {
+    display: grid;
+    grid-template-columns: repest(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+#photos img, #videos video {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #FFF8E1;
+    border: 2px solid var(--yellow);
+    border-radius: 10px;
+}
