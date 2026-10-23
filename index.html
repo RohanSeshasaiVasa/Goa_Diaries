@@ -7,7 +7,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&family=Yeseva+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
     <script src="script.js"></script>
 </head>
 <body>
@@ -111,12 +110,18 @@
     </section>
     <section id="photos">
         <h2>Photos</h2>
-        <button onclick="upload('image')">Upload photos</button>
+        <label>
+            <span>Upload photos</span>
+            <input type="file" accept="image/*" multiple hidden onchange="upload('image', this)">
+        </label>
         <div></div>
     </section>
     <section id="videos">
         <h2>Videos</h2>
-        <button onclick="upload('video')">Upload videos</button>
+        <label>
+            <span>Upload videos</span>
+            <input type="file" accept="videos/*" multiple hidden onchange="upload('video', this)">
+        </label>
         <div></div>
     </section>
 </body>

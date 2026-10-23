@@ -21,18 +21,32 @@ function loadAll(type) {
         .catch(() => {}); 
 }
 
-function upload(type){
-    cloudinary.openUploadWidget({
-        clooudName: cloudName,
-        uploadPreset: uploadPreset,
-        resourceType: type,
-        tags: ["goa"],
-        sources: ["local"]
-    }, (error, result) => {
-        if (result && result.evet === "success"){
-            addCard(type, result.info.public_id);
+async function upload(type, input) {
+    const buttonText = input.previousElementSibling;
+    const oldtext = buttonText.textContent;
+    buttonText.textContent = "Uploading.....................";
+
+    for(const file of input.files){
+        const form = new FormData();
+        form.append("file", file);
+        form.append("upload_preset", uploadPreset);
+        form.append("tags", "goa");
+
+        const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/${type}/upload`, {
+            method: "POST",
+            body: form
+        });
+        const result = await response.json();
+
+        if(resizeTo.public_id) {
+            addCard(type, result.public_id);
+        } else {
+            alert("Upload failed: " + result.error.message);
         }
-    });
+    }
+
+    buttonText.textContent = oldtext;
+    input.value = "";
 }
 
 loadAll("image");
