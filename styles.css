@@ -134,7 +134,7 @@ label {
     }
 }
 
-#photos img, #videos iframe {
+#videos iframe {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
@@ -143,4 +143,40 @@ label {
     background: #FFF8E1;
     border: 2px solid var(--yellow);
     border-radius: 10px;
+}
+
+#photos img {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+    margin: 0 auto;
+    padding: 12px;
+    box-sizing: border-box;
+    background: #FFF8E1;
+    border: 2px solid var(--yellow);
+    border-radius: 10px;
+}
+
+#photos img:not([src]){
+    display: none;
+}
+
+#photos p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+}
+
+#photos button {
+    padding: 8px 20px;
+    font: inherit;
+    color: white;
+    background: var(--blue);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
 }

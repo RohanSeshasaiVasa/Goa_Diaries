@@ -114,7 +114,12 @@
             <span>Upload photos</span>
             <input type="file" accept="image/*" multiple hidden onchange="upload(this)">
         </label>
-        <div></div>
+        <img alt="Goa trip photo">
+        <p>
+            <button onclick="showPage(page -1)">Previous</button>
+            <span>No photos yet</span>
+            <button onclick="showPage(page +1)">Next</button>
+        </p>
     </section>
     <section id="videos">
         <h2>Videos</h2>

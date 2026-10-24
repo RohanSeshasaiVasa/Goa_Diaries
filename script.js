@@ -1,10 +1,17 @@
 const scriptUrl = "https://script.google.com/macros/s/AKfycbyzBZ3onlqAVYETA6sfo5xsGJUQd3tB_gB00hhcv7vg82r0qHu0XCRZhJghP06JKgtOyQ/exec";
+const photoIds = [];
+let page = 0;
+
+function showPage(n){
+    if(photoIds.length === 0) return;
+    page = (n + photoIds.length) % photoIds.length;
+    document.querySelector("#photos img").src = `https://drive.google.com/thumbnail?id=${photoIds[page]}&sz=w1000`;
+    document.querySelector("#photos p span").textContent = `${page+1} of ${photoIds.length}`;
+}
 
 function addCard(file){
     if (file.type.startsWith("image/")){
-        const img = document.createElement("img");
-        img.src = `https://drive.google.com/thumbnail?id=${file.id}&sz=w600`;
-        document.querySelector("#photos div").prepend(img);
+        photoIds.push(file.id);
     } else {
         const video = document.createElement("iframe");
         video.src = `https://drive.google.com/file/d/${file.id}/preview`;
@@ -16,7 +23,10 @@ function addCard(file){
 function loadAll(){
     fetch(scriptUrl)
         .then(response => response.json())
-        .then(files => files.forEach(addCard));
+        .then(files => {
+            files.forEach(addCard);
+            showPage(0);
+        });
 }
 
 function readFile(file) {
@@ -46,6 +56,7 @@ async function upload(input) {
             alert("COuld not upload " + file.name);
         }
     }
+    showPage(photoIds.length-1);
     buttonText.textContent = oldText;
     input.value = "";
 }
