@@ -26,6 +26,9 @@ nav {
     padding: 12px 24px;
     background: white;
     border-bottom: 3px solid var(--blue);
+    flex-wrap: wrap;
+    display: flex;
+    gap: 8px 20px;
 }
 
 nav a {
@@ -180,3 +183,43 @@ label {
     border-radius: 999px;
     cursor: pointer;
 }
+
+#write input, #write textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font: inherit;
+    border: 2px solid var(--yellow);
+    border-radius: 8px;
+}
+
+#write textarea {
+    height: 150px;
+}
+
+#write button {
+    display: block;
+    margin: 24px auto 0;
+    padding: 10px 24px;
+    font: inherit;
+    font-weight: bold;
+    color: white;
+    background: var(--blue);
+    border: none;
+    border-radius: 999px;
+    cursor: crosshair;
+}
+
+select {
+    display: block;
+    margin: 0 auto 30px;
+    padding: 10px 16px;
+    font: inherit;
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+}
+
+#friends article {
+    white-space: pre-line;
+}
+
