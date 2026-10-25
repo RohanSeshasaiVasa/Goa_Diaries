@@ -223,3 +223,73 @@ select {
     white-space: pre-line;
 }
 
+#friends p {
+    text-align: center;
+}
+
+#friends button {
+    padding: 8px 20px;
+    font: inherit;
+    font-weight: bold;
+    color: white;
+    background: var(--blue);
+    border: none;
+    border-radius: 999px;
+    cursor: crosshair;
+}
+
+#friends ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 30px;
+    padding: 0;
+    list-style: none;
+}
+
+#friends li {
+    padding: 4px 14px;
+    background: #FFF8E1;
+    border: 2px solid var(--yellow);
+    border-radius: 999px;
+}
+
+#friends li b {
+    color: var(--blue);
+}
+
+#videos p {
+    text-align: center;
+    font-weight: bold;
+}
+
+#day-bar {
+    position: fixed;
+    top: 100px;
+    bottom: 20px;
+    left: 20px;
+    padding: 12px;
+    writing-mode: vertical-rl;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--blue);
+    background: var(--yellow);
+    border: 4px solid var(--blue);
+    border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+    #day-bar {
+        top: 120px;
+        left: 4px;
+        padding: 6px;
+        font-size: 22px;
+    }
+
+    #story, #friends {
+        padding-left: 56px;
+    }
+}

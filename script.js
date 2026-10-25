@@ -27,7 +27,22 @@ function loadAll(){
         .then(files => {
             files.forEach(addCard);
             showPage(0);
+            updateMessages();
+        })
+        .catch(() => {
+            const problem = "Couldn't load. Check your internet and refresh the page.";
+            document.querySelector("#photos p span").textContent = problem;
+            document.querySelector("#videos p").textContent = problem;
         });
+
+}
+
+function updateMessages() {
+    if (photoIds.length === 0) {
+        document.querySelector("#photos p span").textContent = "No photos yet";
+    }
+    const videoCount = document.querySelectorAll("#videos iframe").length;
+    document.querySelector("#videos p").textContent = videoCount === 0 ? "No videos yet" : "";
 }
 
 function readFile(file) {
@@ -58,6 +73,7 @@ async function upload(input) {
         }
     }
     showPage(photoIds.length-1);
+    updateMessages();
     buttonText.textContent = oldText;
     input.value = "";
 }
@@ -92,9 +108,18 @@ form.onsubmit = async event => {
 
         localStorage.removeItem("goaDraft");
         form.outerHTML = `<p>Thank you, your story has been shared and saved. !! <a href="stories.html">Read everyone's stories</p>`
+        celebrate();
     } catch {
         alert("Your story could not be sent. Check your wifi and try again. Do not worry your writing is still saved.");
         button.textContent = "Submit my story";
         button.disabled = false;
     }
 };
+
+function celebrate() {
+    if (typeof confetti !== "function") return;
+
+    const goaColours = ["#1D4E9E", "#F4C542", "#0F7C80", "#FFFFFF"];
+    confetti({ particleCount: 120, angle: 60, spread: 70, origin: { x: 0, y: 0.9 }, colors: goaColours, disableForReducedMotion: true });
+    confetti({ particleCount: 120, angle: 120, spread: 70, origin: { x: 1, y: 0.9 }, colors: goaColours, disableForReducedMotion: true });
+}

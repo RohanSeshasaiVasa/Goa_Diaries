@@ -119,7 +119,7 @@
         <img alt="Goa trip photo">
         <p>
             <button onclick="showPage(page -1)">Previous</button>
-            <span>No photos yet</span>
+            <span>Loading photos...........</span>
             <button onclick="showPage(page +1)">Next</button>
         </p>
     </section>
@@ -129,6 +129,7 @@
             <span>Upload videos</span>
             <input type="file" accept="videos/*" multiple hidden onchange="upload(this)">
         </label>
+        <p>Loading videos...............</p>
         <div></div>
     </section>
 
@@ -140,7 +141,7 @@
             <h3>Day 1</h3>
             <textarea name="day1" placeholder="What did you do on Day 1 ?" required></textarea>
             <h3>Day 2</h3>
-            <textarea name="day2" placeholder="What did yoy do on Day 2 ?" required></textarea>
+            <textarea name="day2" placeholder="What did you do on Day 2 ?" required></textarea>
             <h3>Day 3</h3>
             <textarea name="day3" placeholder="What did you do on Day 3 ?" required></textarea>
             <h3>Day 4</h3>
@@ -154,6 +155,9 @@
             <button>Submit my story</button>
         </form>
     </section>
+        <aside id="day-bar" hidden></aside>
+        <script src="daybar.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
